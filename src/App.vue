@@ -1,28 +1,43 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <div class="header">乐享英语</div>
+        <transition>
+            <router-view></router-view>
+        </transition>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+    name: "App",
+    components: {}
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.header {
+    font-weight: bolder;
+    font-size: 2em;
+    text-align: center;
+    letter-spacing: 10px;
+    text-indent: 10px;
+    padding: 5px 0px 5px 0px;
+    border-bottom: 1px #ccc solid;
+}
+
+.v-enter {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+.v-leave-to {
+    opacity: 0;
+    transform: translateX(-100%);
+    position: absolute;
+}
+
+.v-enter-active,
+.v-leave-active {
+    transition: all 0.25s ease;
 }
 </style>
